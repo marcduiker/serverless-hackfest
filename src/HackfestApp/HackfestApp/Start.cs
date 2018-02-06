@@ -14,13 +14,13 @@ namespace HackfestApp
         [FunctionName("Start")]
         public static HttpResponseMessage Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req,
-            [DocumentDB("Data", "xpiritserverlessdata", ConnectionStringSetting = "CosmosDBConnection")] out dynamic document,
+            [DocumentDB("data", "xpiritserverlessdata", ConnectionStringSetting = "CosmosDBConnection")] out dynamic document,
             TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
            // Get request body
-            dynamic data = req.Content.ReadAsAsync<object>();
+            dynamic data = req.Content.ReadAsAsync<object>().Result;
             var name = data?.name;
 
             document = new { Name = name, id = Guid.NewGuid() };

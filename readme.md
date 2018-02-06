@@ -4,6 +4,7 @@
 
 Make end to end serverless application
 
+
 ## Ingredients
 
 - Web app (for user input + image upload)
@@ -13,5 +14,3 @@ Make end to end serverless application
 - Logic Apps
 - Cognitive Services
 - CosmosDB
-
-use case: web app met user input en image
